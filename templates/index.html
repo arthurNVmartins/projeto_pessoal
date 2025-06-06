@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Início - Histórias Favoritas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white py-4 shadow">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Histórias Favoritas</h1>
+      <nav class="space-x-4">
+        <a href="#" class="hover:underline">Início</a>
+        <a href="crud.html" class="hover:underline">Minhas Histórias</a>
+        <a href="#recomendacoes" class="hover:underline">Recomendações</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 bg-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-4">Bem-vindo ao seu espaço de leitura</h2>
+      <p class="text-lg text-gray-600 mb-8">
+        Cadastre suas histórias favoritas, organize suas leituras e descubra novas aventuras baseadas no seu estilo de leitura: livros ou quadrinhos!
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="crud.html" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          📖 Acessar Minhas Histórias
+        </a>
+        <a href="#recomendacoes" class="bg-gray-200 text-gray-800 px-6 py-3 rounded hover:bg-gray-300 transition">
+          💡 Ver Recomendações
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-2xl font-semibold mb-4">Por que usar este projeto?</h3>
+      <p class="text-gray-700 mb-6">
+        Este projeto é uma forma prática e leve de manter o controle sobre suas leituras favoritas. Seja você fã de literatura clássica ou apaixonado por quadrinhos, aqui é o seu lugar!
+      </p>
+      <p class="text-gray-700">
+        Comece agora mesmo e aproveite recomendações feitas com base no seu formato de leitura preferido!
+      </p>
+    </div>
+  </section>
+
+  <!-- Recommendations Shortcut -->
+  <section id="recomendacoes" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-2xl font-semibold mb-6">Quer sugestões de leitura?</h3>
+      <p class="text-gray-700 mb-4">
+        Clique no botão abaixo para ir direto para a seção de recomendações.
+      </p>
+      <a href="crud.html#recomendationSelect" class="inline-block bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">
+        Ver Recomendações
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-center py-4 mt-10 text-sm text-gray-600">
+    Projeto CRUD de Leitura © 2025
+  </footer>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minhas Histórias Favoritas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-8">Pelas Infinitas Histórias</h1>
+
+    <!-- Formulário -->
+    <form id="storyForm" class="bg-white p-6 rounded shadow-md space-y-4 mb-8">
+      <div>
+        <label for="tipo" class="block text-sm font-medium text-gray-700">Formato</label>
+        <select id="tipo" required class="mt-1 block w-full border border-gray-300 rounded p-2">
+          <option value="">Escolha o formato</option>
+          <option value="Livro">Livro</option>
+          <option value="Quadrinho">Quadrinho</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="titulo" class="block text-sm font-medium text-gray-700">Título</label>
+        <input id="titulo" type="text" required class="mt-1 block w-full border border-gray-300 rounded p-2" />
+      </div>
+
+      <div>
+        <label for="autor" class="block text-sm font-medium text-gray-700">Autor</label>
+        <input id="autor" type="text" required class="mt-1 block w-full border border-gray-300 rounded p-2" />
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        Adicionar à Lista
+      </button>
+    </form>
+
+    <!-- Lista de histórias -->
+    <div class="bg-white p-6 rounded shadow-md mb-8">
+      <h2 class="text-xl font-semibold mb-4">Histórias Favoritas</h2>
+      <table class="w-full table-auto text-left">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="px-4 py-2">Formato</th>
+            <th class="px-4 py-2">Título</th>
+            <th class="px-4 py-2">Autor</th>
+            <th class="px-4 py-2">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="storyTable" class="divide-y divide-gray-100">
+          <!-- Histórias inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recomendações -->
+    <div class="bg-white p-6 rounded shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Recomendações para você</h2>
+      <select id="recomendationSelect" class="mb-4 p-2 border border-gray-300 rounded">
+        <option value="">Escolha o formato</option>
+        <option value="Livro">Livro</option>
+        <option value="Quadrinho">Quadrinho</option>
+      </select>
+      <ul id="recomendationList" class="list-disc list-inside text-gray-700">
+        <!-- Recomendações aparecerão aqui -->
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('storyForm');
+    const table = document.getElementById('storyTable');
+    const recomendationSelect = document.getElementById('recomendationSelect');
+    const recomendationList = document.getElementById('recomendationList');
+    let editIndex = null;
+
+    const recomendacoes = {
+      Livro: [
+        '1984 - George Orwell',
+        'O Senhor dos Anéis - J.R.R. Tolkien',
+        'Dom Casmurro - Machado de Assis'
+      ],
+      Quadrinho: [
+        'Batman: A Piada Mortal - Alan Moore',
+        'Watchmen - Alan Moore',
+        'Turma da Mônica - Mauricio de Sousa'
+      ]
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const tipo = document.getElementById('tipo').value;
+      const titulo = document.getElementById('titulo').value;
+      const autor = document.getElementById('autor').value;
+
+      if (editIndex === null) {
+        addStory(tipo, titulo, autor);
+      } else {
+        updateStory(editIndex, tipo, titulo, autor);
+        editIndex = null;
+      }
+
+      form.reset();
+    });
+
+    function addStory(tipo, titulo, autor) {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tipo}</td>
+        <td class="px-4 py-2">${titulo}</td>
+        <td class="px-4 py-2">${autor}</td>
+        <td class="px-4 py-2 space-x-2">
+          <button onclick="editStory(this)" class="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500">Editar</button>
+          <button onclick="deleteStory(this)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Excluir</button>
+        </td>
+      `;
+      table.appendChild(row);
+    }
+
+    function editStory(button) {
+      const row = button.closest('tr');
+      editIndex = Array.from(table.children).indexOf(row);
+
+      document.getElementById('tipo').value = row.cells[0].textContent;
+      document.getElementById('titulo').value = row.cells[1].textContent;
+      document.getElementById('autor').value = row.cells[2].textContent;
+    }
+
+    function updateStory(index, tipo, titulo, autor) {
+      const row = table.children[index];
+      row.cells[0].textContent = tipo;
+      row.cells[1].textContent = titulo;
+      row.cells[2].textContent = autor;
+    }
+
+    function deleteStory(button) {
+      const row = button.closest('tr');
+      table.removeChild(row);
+    }
+
+    recomendationSelect.addEventListener('change', () => {
+      const tipo = recomendationSelect.value;
+      recomendationList.innerHTML = '';
+
+      if (recomendacoes[tipo]) {
+        recomendacoes[tipo].forEach(historia => {
+          const li = document.createElement('li');
+          li.textContent = historia;
+          recomendationList.appendChild(li);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

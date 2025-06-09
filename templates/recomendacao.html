@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Recomendação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="max-w-3xl mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold mb-6 text-center">Formulário de Recomendação de HQs e Livros</h1>
+    
+    <form class="space-y-6">
+      <!-- Preferência geral -->
+      <div>
+        <label class="block text-lg font-medium mb-2">Você prefere:</label>
+        <div class="flex space-x-4">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="preferencia" value="hqs" class="form-radio text-indigo-600" required />
+            <span>HQs</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="preferencia" value="livros" class="form-radio text-indigo-600" />
+            <span>Livros</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 10 perguntas -->
+      <div class="space-y-4">
+        <div>
+          <label class="block font-medium">1. Você prefere histórias:</label>
+          <select name="historia_tipo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="fantasia">Fantasia</option>
+            <option value="ficcao">Ficção científica</option>
+            <option value="realista">Realistas</option>
+            <option value="suspense">Suspense/Thriller</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">2. Gosta de tramas com muitos personagens?</label>
+          <select name="personagens_muitos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+            <option value="tanto_faz">Tanto faz</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">3. Prefere histórias com ritmo:</label>
+          <select name="ritmo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="lento">Lento e profundo</option>
+            <option value="moderado">Moderado</option>
+            <option value="rapido">Rápido e dinâmico</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">4. Qual destes temas mais te atrai?</label>
+          <select name="tema" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="existencial">Reflexões existenciais</option>
+            <option value="aventura">Aventura</option>
+            <option value="romance">Romance</option>
+            <option value="politico">Crítica social/política</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">5. Você gosta de finais:</label>
+          <select name="final" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="fechados">Fechados e explicados</option>
+            <option value="abertos">Abertos e interpretativos</option>
+            <option value="surpreendentes">Surpreendentes</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">6. Você gosta de histórias com humor?</label>
+          <select name="humor" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+            <option value="leve">Apenas um toque leve</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">7. Você prefere narrativas:</label>
+          <select name="narrativa" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="cronologica">Cronológicas</option>
+            <option value="fragmentada">Fragmentadas / Não-lineares</option>
+            <option value="ambas">Ambas funcionam</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">8. Você se interessa por histórias baseadas em fatos reais?</label>
+          <select name="base_real" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+            <option value="depende">Depende do tema</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">9. Prefere personagens:</label>
+          <select name="personagem_tipo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="heroicos">Heroicos / inspiradores</option>
+            <option value="complexos">Complexos / falhos</option>
+            <option value="diversos">Diversos</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium">10. Você se importa mais com:</label>
+          <select name="importancia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <option value="personagens">Os personagens</option>
+            <option value="trama">A trama</option>
+            <option value="ambos">Ambos igualmente</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botão de envio -->
+      <div class="pt-6">
+        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+          Enviar Respostas
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

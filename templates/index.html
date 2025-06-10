@@ -8,13 +8,13 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
-  <header class="bg-blue-600 text-white py-4 shadow">
+  <header class="bg-black text-white py-4 shadow">
     <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
       <h1 class="text-2xl font-bold">Histórias Favoritas</h1>
       <nav class="space-x-4">
         <a href="#" class="hover:underline">Início</a>
         <a href="{{url_for('historias')}}" class="hover:underline">Minhas Histórias</a>
-        <a href="#recomendacoes" class="hover:underline">Recomendações</a>
+        <a href="{{url_for('recomendacao')}}" class="hover:underline">Recomendações</a>
       </nav>
     </div>
   </header>
@@ -57,14 +57,14 @@
       <p class="text-gray-700 mb-4">
         Clique no botão abaixo para ir direto para a seção de recomendações.
       </p>
-      <a href="crud.html#recomendationSelect" class="inline-block bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">
+      <a href="{{url_for('recomendacao')}}" class="inline-block bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">
         Ver Recomendações
       </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-200 text-center py-4 mt-10 text-sm text-gray-600">
+  <footer class="bg-teal-500 text-center py-4 mt-10 text-sm text-gray-600">
     Projeto CRUD de Leitura © 2025
   </footer>
 </body>

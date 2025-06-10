@@ -11,5 +11,8 @@ def index():
 @app.route('/historias')
 def historias():
     return render_template('historias.html')
+@app.route('/recomendacao')
+def recomendacao():
+    return render_template('/recomendacao.html')
 if __name__=='__main__':
     app.run(debug=True)
